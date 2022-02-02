@@ -22,7 +22,7 @@ Então('login é efetivado com sucesso e sou redirecionado para a página princi
 end
 
 Então('visualizo que a senha está invalida') do
-  expect(@login_page.fail_login_msg).to have_content("Lost your password?")
+  expect(@login_page.fail_login_msg).to have_content("ERROR: The password you entered for the username luisffg91@gmail.com is incorrect. Lost your password?")
 end
 
 Então('visualizo que o email está inválido') do
