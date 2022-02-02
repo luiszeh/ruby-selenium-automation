@@ -4,9 +4,8 @@ set_url '/my-account/'                         # O usuário está sendo direcion
 
 element :input_email, '#username'      # Encontrando o elemento de input de email
 element :input_password, '#password'  # Encontrando o elemento de input de password
-# element :alert, '#center_column > div.alert.alert-danger > ol > li'
-# element :input_button, '.woocommerce-Button button'
 element :label_logged, '.woocommerce-MyAccount-content'
+element :fail_login_msg, '.woocommerce > ul > li'   # Encontrando a msg de erro do email incorreto
 
 def login()
 input_email.send_keys("luisffg91@gmail.com")
@@ -15,10 +14,17 @@ find(:xpath, "//input[@name='login']").click
 # input_button.click
 end
 
-def confirm_login()
-    label_logged.has_text?('Hello')
+def login_fail_email_func()
+    input_email.send_keys("email.errado@gmail.com")
+    input_password.send_keys("Senhazuada")
+    find(:xpath, "//input[@name='login']").click
 end
 
+def login_fail_senha_func()
+    input_email.send_keys("luisffg91@gmail.com")
+    input_password.send_keys("1234")
+    find(:xpath, "//input[@name='login']").click
+end
 
 end
 
